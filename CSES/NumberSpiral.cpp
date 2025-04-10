@@ -1,22 +1,30 @@
-#include <algorithm>
 #include <iostream>
-#include <set>
-#include <vector>
 using namespace std;
+
+#define ll long long
 
 int main() {
 
-  vector<string> words = {"foo", "bar", "check"};
-  sort(words.begin(), words.end());
+  ll n = 0;
+  cin >> n;
 
-  do {
-    for (auto it : words) {
-      cout << it << " ";
+  while (n--) {
+    ll x = 0, y = 0;
+    cin >> x >> y;
+    ll res = 0;
+    if (x >= y) {
+      if (x % 2 == 0)
+        res = x * x - y + 1;
+      else
+        res = (x - 1) * (x - 1) + y;
+    } else {
+      if (y % 2 == 0)
+        res = (y - 1) * (y - 1) + x;
+      else
+        res = y * y - x + 1;
     }
-    cout << endl;
-  } while (next_permutation(words.begin(), words.end()));
+    cout << res << endl;
+  }
 
-  string s = "Hrithik";
-  int n = s.find('H');
-  cout << n << endl;
+  return 0;
 }
